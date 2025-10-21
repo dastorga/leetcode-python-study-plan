@@ -185,3 +185,74 @@ def test_merge_k_lists():
 
 if __name__ == "__main__":
     test_merge_k_lists()
+
+
+
+
+# Complejidad de las soluciones:
+    # Brute Force (O(n log n))
+    # Min Heap (O(n log k))
+    # Divide and Conquer (O(n log k))
+
+
+
+# Logica de Brute Force
+# Input: [[1,4,5], [1,3,4], [2,6]]
+# Después de este paso: values = [1,4,5,1,3,4,2,6]
+
+# Paso 2: Ordenar todos los valores
+    # values.sort()
+    # Usa el algoritmo de ordenamiento de Python (Timsort)
+    # Ordena todos los valores en orden ascendente
+
+# Paso 3: Crear una nueva lista enlazada ordenada
+    # dummy = ListNode(0)
+    # current = dummy
+    # for val in values:
+    #     current.next = ListNode(val)
+    #     current = current.next
+
+    # return dummy.next
+
+
+    # Ventajas:
+    #     Fácil de entender e implementar
+    #     Funciona correctamente para cualquier entrada
+    #     No requiere conocimientos avanzados de estructuras de datos
+
+
+
+
+#  ***** Enfoque Min Heap *****
+# 🔄 Visualización completa del proceso:
+
+# Input: [[1,4,5], [1,3,4], [2,6]]
+
+# Estado inicial del heap:
+# [(1,0,Node), (1,1,Node), (2,2,Node)]
+
+# Iteración 1: Pop (1,0) → Resultado: [1]
+# Heap: [(1,1,Node), (2,2,Node), (4,0,Node)]
+
+# Iteración 2: Pop (1,1) → Resultado: [1,1]
+# Heap: [(2,2,Node), (4,0,Node), (3,1,Node)]
+
+# Iteración 3: Pop (2,2) → Resultado: [1,1,2]
+# Heap: [(3,1,Node), (4,0,Node), (6,2,Node)]
+
+# Iteración 4: Pop (3,1) → Resultado: [1,1,2,3]
+# Heap: [(4,0,Node), (6,2,Node), (4,1,Node)]
+
+# Iteración 5: Pop (4,0) → Resultado: [1,1,2,3,4]
+# Heap: [(4,1,Node), (6,2,Node), (5,0,Node)]
+
+# Iteración 6: Pop (4,1) → Resultado: [1,1,2,3,4,4]
+# Heap: [(5,0,Node), (6,2,Node)]
+
+# Iteración 7: Pop (5,0) → Resultado: [1,1,2,3,4,4,5]
+# Heap: [(6,2,Node)]
+
+# Iteración 8: Pop (6,2) → Resultado: [1,1,2,3,4,4,5,6]
+# Heap: []
+
+# Final: [1,1,2,3,4,4,5,6]
